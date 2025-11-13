@@ -14,7 +14,10 @@ class ParticleSystem {
       p.run();
       let gravity = createVector(0, 0.8);
       p.addForce(gravity);
-      
+      if (p.position.dist(whitehole.position) < whitehole.mass){
+      let radiate = whitehole.calculateAttraction(p);
+       p.addForce(radiate);
+      }
       if (p.position.dist(blackhole.position) < blackhole.mass){
       p.small();
        let attrater = blackhole.calculateAttraction(p);
