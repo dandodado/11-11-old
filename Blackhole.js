@@ -1,7 +1,7 @@
 class Blackhole {
   constructor() {
-    this.position = createVector(250, height-100);
-    this.G = 3;
+    this.position = createVector(500, height-100);
+    this.G = 10;
     this.mass = 120;
     this.a = 0;
   
@@ -28,7 +28,9 @@ class Blackhole {
   }
   }
   extinction() {
-    this.mass -= 0.5;
+     if(this.a == 1){
+    this.mass -= 2;
+    }
    if(this.mass <0.1) {
     this.a = 0;
     this.mass = 120;

@@ -1,7 +1,7 @@
 class Whitehole {
   constructor() {
-    this.position = createVector(500, height/2-30);
-    this.G = 3;
+    this.position = createVector(300, height-100);
+    this.G = 10;
     this.mass = 120;
    this.a = 0;
   
@@ -30,7 +30,9 @@ class Whitehole {
 
 
    extinction() {
-    this.mass -= 0.5;
+    if(this.a == 1){
+    this.mass -= 2;
+    }
    if(this.mass <0.1) {
     this.a = 0;
     this.mass = 120;
