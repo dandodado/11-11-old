@@ -1,20 +1,25 @@
 class Particle {
   constructor(position) {
-    this.acceleration = createVector(0, 0.05);
+    this.acceleration = createVector(0, 0);
     this.velocity = createVector(random(-1, 1), random(-1, 0));
     this.position = position.copy();
     this.lifespan = 255;
+    this.mass = 1;
   }
 
   run() {
     this.update();
     this.display();
   }
-
+  addForce(force) {
+    let f = p5.Vector.div(force, this.mass);
+    this.acceleration.add(f);
+  }
   // 위치 업데이트를 위한 메소드
   update(){
     this.velocity.add(this.acceleration);
     this.position.add(this.velocity);
+    this.acceleration.set(0, 0);
     this.lifespan -= 2;
   }
 
