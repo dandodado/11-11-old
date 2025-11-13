@@ -4,7 +4,7 @@ class Particle {
     this.velocity = createVector(random(-1, 1), random(-1, 0));
     this.position = position.copy();
     this.lifespan = 255;
-    this.mass = 1;
+    this.mass = 12;
   }
 
   run() {
@@ -28,7 +28,13 @@ class Particle {
     stroke(200, this.lifespan);
     strokeWeight(2);
     fill(127, this.lifespan);
-    ellipse(this.position.x, this.position.y, 12, 12);
+    ellipse(this.position.x, this.position.y, this.mass,this.mass);
+  }
+  small() {
+    this.lifespan -= 5;
+    if (this.mass > 1){
+    this.mass -= 1;
+    }
   }
 
   // 파티클이 여전히 쓸만한가요?
