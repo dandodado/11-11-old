@@ -18,6 +18,7 @@ class Blackhole {
   }
  calculateAttraction(m) {
   if (this.a == 1){  
+    this.position = createVector(mouseX, mouseY);
   let force = p5.Vector.sub(this.position, m.position);
     let distance = force.mag();
     distance = constrain(distance, 5, 25);
@@ -36,5 +37,6 @@ class Blackhole {
     this.mass = 120;
    }
   }
+  
 
 }

@@ -18,6 +18,7 @@ class Whitehole {
   }
  calculateAttraction(m) {
   if (this.a == 1){  
+    this.position = createVector(mouseX, mouseY);
   let force = p5.Vector.sub(m.position,this.position);
     let distance = force.mag();
     distance = constrain(distance, 5, 25);
@@ -38,4 +39,6 @@ class Whitehole {
     this.mass = 120;
    }
   }
+
+  
 }
